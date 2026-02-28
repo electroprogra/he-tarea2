@@ -22,5 +22,12 @@ Nota: Revisar información más detallada en la documentación.
 
 CASO DE USO MÁS COMÚN - Descubrir puertos comunes
 1. Indicar el HOST mediante la IPv4.
-2. Para el escaneo de puertos: Indicar que se realizará escaneo de puertos comunes.
-3. Fin.
+2. Para el escaneo de puertos: Indicar con la letra   d   que se realizará escaneo de puertos comunes.
+3. Esperar a que aparezca la leyenda "Escaneo completado".
+4. Fin del caso de uso.
+
+CASO DE USO MÁS COMÚN - Descubrir puertos indicados en la tarea (1 al 200)
+1. Indicar el HOST mediante la IPv4.
+2. Para el escaneo de puertos: Indicar con la palabra   tarea   que se realizará escaneo de puertos 1 al 200.
+3. Esperar a que aparezca la leyenda "Escaneo completado".
+4. Fin del caso de uso.
