@@ -149,32 +149,40 @@ def scanPort(ip_objetivo, puerto, desc=""):
 ascii_title("Scanner.py v1.0\n\npor\nel3ctroprogra@gmail.com", 3, 1, "center", "doubleLine")
 print()
 
-ip_objetivo = input("Ingrese la dirección IP a escanear (Presiona l para usar localhost): ")
+ip_objetivo = input("Ingrese la dirección IP a escanear (Presiona   l   para usar localhost): ")
 if ip_objetivo == 'l':
     ip_objetivo = LOCALHOST
 
-puerto_inicio_str = input(f"Ingrese el puerto de inicio (entre {PORT_MIN} y {PORT_MAX}, presiona d para usar puertos comunes): ")
-if puerto_inicio_str != 'd':
-    puerto_inicio = int(puerto_inicio_str)
-    puerto_fin_str = input(f"Ingrese el puerto de fin (entre {puerto_inicio} y {PORT_MAX}, presiona x para usar el puerto final 65535): ")
-    if puerto_fin_str == 'x':
-        puerto_fin = PORT_MAX
-    else:
-        puerto_fin = int(puerto_fin_str)
-
-    print(f'\nEscaneando {ip_objetivo} del puerto {puerto_inicio} a {puerto_fin}...')
-    print('-' * 50)
-
-    for puerto in range(puerto_inicio, puerto_fin + 1):
-        scanPort(ip_objetivo, puerto)
-
-else:
+puerto_inicio_str = input(f"Ingrese el puerto de inicio (entre {PORT_MIN} y {PORT_MAX}, escriba   tarea   para escanear del puerto 1 al 200, presiona   d   para usar puertos comunes): ")
+### Escanear puertos comunes ###
+if puerto_inicio_str == 'd':
     print(f'\nEscaneando {ip_objetivo} en puertos comunes...')
     print('-' * 50)
 
     for puerto_str, desc in puertosComunes.items():
         puerto = int(puerto_str)
         scanPort(ip_objetivo, puerto, desc)
+###
+else:
+    #Se seleccionaron los puertos indicados en la tarea
+    if puerto_inicio_str == 'tarea':
+        puerto_inicio = 1
+        puerto_fin = 200
+    #Se seleccionaron puertos personalizados
+    else:
+        puerto_inicio = int(puerto_inicio_str)
+        puerto_fin_str = input(f"Ingrese el puerto de fin (entre {puerto_inicio} y {PORT_MAX}, presiona   x   para usar el puerto final 65535): ")
+        if puerto_fin_str == 'x':
+            puerto_fin = PORT_MAX
+        else:
+            puerto_fin = int(puerto_fin_str)
+
+    #Probar el rango de puertos seleccionado
+    print(f'\nEscaneando {ip_objetivo} del puerto {puerto_inicio} a {puerto_fin}...')
+    print('-' * 50)
+
+    for puerto in range(puerto_inicio, puerto_fin + 1):
+        scanPort(ip_objetivo, puerto)
 
 print('-' * 50)    
 print("Escaneo completado.")
