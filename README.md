@@ -1,6 +1,8 @@
 ### OBJETIVO ###
 Descubrir puertos abiertos en un HOST.
 
+
+
 ### ESTRUCTURA DEL REPO ###
 dev -> Herramienta de ayuda para configurar el ambiente de desarrollo.
 build -> Herramienta de ayuda para la construcción del paquete ejecutable.
@@ -12,6 +14,8 @@ src -> Componentes funcionales necesarios para el proyecto (Códigos, recursos d
 tst -> Componentes para ejecutar pruebas.
 
 dump/lib -> Copia (o enlace con verificación de integridad) de cada una de las librerías utilizadas.
+
+
 
 ### Getting started ###
 Nota: Revisar información más detallada en la documentación.
